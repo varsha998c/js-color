@@ -11,11 +11,38 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	font-weight: bold;
-	font-family: "Circular-Std-Regular", Arial, Helvetica, sans-serif;	
+	
 }
 ol, ul {
 	list-style: none;
 }
+@font-face {
+    font-family: 'Oxygen';
+    src: url("fonts-Oxygen-Bold.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Oxygen';
+    src: url("Oxygen-Light.ttf");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Oxygen';
+    src: url("Oxygen-Regular.ttf");
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: url("fonts-Nunito-ExtraLight.ttf");
+    font-weight: 100;
+    font-style: normal;
+}
+
 :root{
     --main-color: #fff;
     --font-color: #000;
@@ -31,7 +58,7 @@ ol, ul {
     color: #000 !important;
     font-weight: bolder;
 }
-.slick-prev:before {
+/* .slick-prev:before {
     font-family: 'slick';
     line-height: 1;
     opacity: .75;
@@ -39,7 +66,7 @@ ol, ul {
     font-size: 87px !important;
     color: orangered;
     font-size: 89px;
-}
+} */
 body {
 	width: 100%;
 	font-family: "Circular-Std-Regular", Arial, Helvetica, sans-serif;
@@ -56,6 +83,7 @@ body {
 }
 .fa-user {
 }
+/* #spotlight */
 #spotlight {
     width: 100%;
     padding-top: 20px;
@@ -111,7 +139,7 @@ body {
 }
 #spotlight .wrapper header div.right ul li:hover  {
     transform: scale(1.2);
-    transform: translateY(-50%);
+    transform: translateY(-15%);
 }
 #spotlight .wrapper header div.right ul li a {
     color: #707172;
@@ -148,9 +176,6 @@ body {
     width: 60%;
 
 }
-/* .fa-moon {
-    font-size: 30px;
-} */
 #spotlight .wrapper header div.color h5 {
     font-size: 20px;
     margin-left: 5px;
@@ -162,7 +187,7 @@ body {
     width: 100%;
 }
 #spotlight .wrapper .content div.left {
-    width: 67%;
+    width: 82%;
     height: 450px;
     margin-top: 5%;
 }
@@ -172,19 +197,65 @@ body {
     color: #464747;
     margin-left: 4%;
 }
-#spotlight .wrapper .content div.left h1.one {
-    font-size: 60px;
+#spotlight .wrapper .content div.left div.words {
+    display: flex;
+}
+#spotlight .wrapper .content div.left div.words h1.one {
+    font-size: 50px;
     font-weight: bold;
     color: #0a0a0adc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-#spotlight .wrapper .content div.left h1.one.active {
+#spotlight .wrapper .content div.left div.words h1.one.active {
     color: #fff;
 } 
+#spotlight .wrapper .content div.left div.words div.animate {
+    height: 50px;
+    overflow: hidden;
+}
+#spotlight .wrapper .content div.left div.words div.animate span {
+    display: block;
+    font-size: 50px;
+    font-weight: bold;
+    color: orange;
+    margin-left: 15px;
+    animation: spin_words 8s infinite;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+@keyframes spin_words {
+    10% {
+        transform: translateY(-112%);
+    }
+    25% {
+        transform: translateY(-100%);
+    }
+    35% {
+        transform: translateY(-212%);
+    }
+    50% {
+        transform: translateY(-200%);
+    }
+    /* 60% {
+        transform: translateY(-312%);
+    }
+    75% {
+        transform: translateY(-300%);
+    }
+    85% {
+        transform: translateY(-400%);
+    } */
+    100% {
+        transform: translateY(-300%);
+    }
+}
+
 #spotlight .wrapper .content div.left p {
     font-size: 20px;
-    color: #a6acb1;
+    color: #6b6d6e;
     margin-top: 3%;
     margin-bottom: 7%;
+    font-family: "Open sans"
 }
 #spotlight .wrapper section.content div.left a {
    margin: 0 auto;
@@ -196,6 +267,7 @@ body {
     width: 150px;
     color: rgb(41, 40, 40);
     padding: 19px 37px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #spotlight .wrapper section.content div.left a.submit:hover {
     color: orange;
@@ -217,7 +289,7 @@ body {
     margin-right: 1%;
 }
 #spotlight .wrapper section.content div.right {
-    width: 55%;
+    width: 66%;
     height: 450px;
 }
 #spotlight .wrapper section.content div.right  div.image-container {
@@ -226,6 +298,7 @@ body {
 #spotlight .wrapper section.content div.right div.image-container img {
     width: 86%;
 }
+/* #main */
 #main {
     width: 100%;
     background-color: var(--main-color);
@@ -247,6 +320,7 @@ body {
     width: 63%;
     font-size: 50px;
     color: #080808;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #main section.wrapper div.header h1.active {
     color: #fff;
@@ -265,10 +339,10 @@ body {
     position: relative;
     top: -500px;
 }
+/* middle */
 #middle { 
     width: 100%;
-    background-color: var(--main-color);
-    
+    background-color: var(--main-color);  
 }
 #middle.active {
     background-color: #000;
@@ -284,7 +358,7 @@ body {
 #middle .wrapper .left h2 {
     font-size: 40px;
     font-weight: bold;
-    color: #463f3f;
+    color: #1b1a1a;
     margin-bottom: 5%;
 }
 #middle .wrapper .left h2.active {
@@ -333,21 +407,22 @@ body {
     font-size: 29px;
     color: #2e2c2c;
     font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #middle .wrapper .left ul li .right h3 span {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     margin-left: 1%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #302d33;
 }
 #middle .wrapper .left ul li .right p {
     width: 80%;
     font-size: 17px;
     margin-top: 3%;
-    color: #6d6d6d;
+    color: #6b6d6e;
     line-height: 1.5;
+    font-family: "Open Sans";
 }
 #middle .wrapper .right { 
     width: 50%;
@@ -355,7 +430,7 @@ body {
 #middle .wrapper .right h2 {
     font-size: 40px;
     font-weight: bold;
-    color: #463f3f;
+    color: #1b1a1a;
     margin-bottom: 5%;
 }
 #middle .wrapper .right h2.active {
@@ -377,8 +452,7 @@ body {
 }
 #middle .wrapper .right ul li { 
     display: flex;
-    margin-bottom: 15%;
-    
+    margin-bottom: 15%;  
 }
 #middle .wrapper .right ul li.active {
     color: #fff;
@@ -405,13 +479,13 @@ body {
     font-size: 29px;
     color: #2e2c2c;
     font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #middle .wrapper .right ul li .right h3 span {
     font-size: 18px;
     font-weight: bold;
     margin-left: 1%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #302d33;
 }
 #middle .wrapper .right ul li .right h3 span.active {
@@ -431,6 +505,7 @@ body {
     color: orange;
     transition: .1s;
 }
+/* #contact */
 #contact { 
     width: 100%;
     background-color: var(--main-color);
@@ -452,7 +527,6 @@ body {
 #contact .wrapper .left .frame { 
 
 }
-
 #contact .wrapper .left .frame iframe { 
     width: 90%;
 }
@@ -509,7 +583,7 @@ body {
 #contact .wrapper .right h2 {
     font-size: 42px;
     color: 3;
-    width: 90%;
+    width: 91%;
     font-weight: 800;
 }
 #contact .wrapper .right form { 
@@ -582,6 +656,7 @@ body {
 .fa-youtube:hover {
     color: orange;
 }
+/* footer */
 footer {
 	color: #fff;
 	padding-top: 6%;
@@ -592,12 +667,12 @@ footer.active {
     color: #fff;
 }
 footer h4 {
-    margin-left: 35%;
+    text-align: center;
     color: #6d6d6d;
     font-size:20px;
 }
 footer h6 {
-    margin-left: 42%;
+    text-align: center;
     color: #6d6d6d;
     font-size: 20px;
     margin-top: 20px;
@@ -607,4 +682,244 @@ footer h6 b {
 }
 footer h6 b:hover {
     color: orange;
+}
+/* Responsive */
+@media all and (max-width: 1280px) {
+    #spotlight .wrapper header div.image-container {
+        width: 16%;
+    }
+    .fa-user {
+        font-size: 32px;
+    }
+    #spotlight .wrapper header div.image-container a {
+        font-size: 30px;
+    }
+    #spotlight .wrapper header div.image-container a h1 {
+        font-size: 18px;
+    }
+    #spotlight .wrapper header div.right {
+        width: 51%;
+        justify-content: center;
+    }
+    #spotlight .wrapper header div.right ul {
+        width: 80%;
+        margin: 10px 0 0 0;
+    }
+    #spotlight .wrapper header div.right ul li {
+        width: 31%;
+    }
+    #spotlight .wrapper header div.right ul li a {
+        font-size: 16px;
+    }
+    #spotlight .wrapper header div.color {
+        width: 18%;
+    }
+    #spotlight .wrapper header div.color div.btn {
+        width: 42px;
+    }
+    #spotlight .wrapper header div.color h5 {
+        font-size: 19px;
+    }
+    #spotlight .wrapper .content div.left div.words h1.one {
+        width: 65%;
+    }
+    #spotlight .wrapper .content div.left {
+        width: 87%;
+    }
+    #spotlight .wrapper .content div.left div.words h1.one {
+        font-size: 38px;
+        width: 65%;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate {
+        height: 34px;
+        width: 64%;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate span {
+        font-size: 36px;
+        margin-left: 8px;  
+    }
+    #spotlight .wrapper .content div.left p {
+        font-size: 15px;
+    }
+    #spotlight .wrapper section.content div.left a.submit {
+        padding: 17px 29px;
+    }
+    #spotlight .wrapper section.content div.left a.button {
+        padding: 16px 26px;
+    }
+    #main section.wrapper div.header h1 {
+        width: 65%;
+        font-size: 36px;
+    }
+    #middle .wrapper .left h2 {
+        font-size: 35px;
+    }
+    #middle .wrapper .left ul li .left {
+        width: 19%;
+        height: 76px;
+    }
+    #middle .wrapper .left ul::before {
+        height: 610px;
+        left: 40px;
+    }
+    #middle .wrapper .left ul li .left span {
+        margin: 28% 21% 30% 17%;
+    }
+    #middle .wrapper .left ul li .right h3 {
+        font-size: 25px;
+    }
+    #middle .wrapper .left ul li .right h3 span {
+        font-size: 15px;
+    }
+    #middle .wrapper .left ul li .right p {
+        width: 99%;
+        font-size: 15px;
+    }
+    #middle .wrapper .right h2 {
+        font-size: 35px;
+    }
+    #middle .wrapper .right ul li .left {
+        width: 19%;
+        height: 76px;
+    }
+    #middle .wrapper .right ul::before {
+        height: 400px;
+        left: 40px;
+    }
+    #middle .wrapper .right ul li .left span {
+        margin: 28% 21% 30% 20%;
+    }
+    #middle .wrapper .right ul li .right h3 {
+        font-size: 25px;
+    }
+    #middle .wrapper .right ul li .right h3 span {
+        font-size: 15px;
+    }
+    #middle .wrapper .right ul li .right p {
+        width: 91%;
+        font-size: 15px;
+    }
+    #contact .wrapper .left .hello .one h2 {
+        font-size: 31px;
+    }
+    #contact .wrapper .left .hello .one span {
+        font-size: 16px; 
+    }
+    #contact .wrapper .left .hello .one h4 {
+        font-size: 16px;
+    }
+    #contact .wrapper .right {
+        width: 60%;
+    }
+    #contact .wrapper .right h2 {
+        font-size: 32px;
+    }
+    #contact .wrapper .right form div.text {
+        margin-bottom: 4%;
+    }
+    #contact .wrapper .right form .text textarea {
+        height: 215px;
+    }
+    footer h4 {
+        font-size: 15px;
+        text-align: center;
+        color: #6d6d6d;
+    }
+    footer h6 {
+        font-size: 15px;
+    }
+}
+@media all and (max-width: 1080px) {
+    #middle .wrapper .left ul::before {
+        left: 37px;
+    }
+    #middle .wrapper .left ul li .left span {
+        margin: 32% 21% 30% 15%;
+    }
+    #middle .wrapper .right ul::before {
+        left: 36px;
+    }
+    #middle .wrapper .right ul li .left span {
+        margin: 32% 21% 30% 15%;
+    }
+}
+@media all and (max-width: 980px) {
+    #spotlight .wrapper header div.color {
+        width: 21%;
+    }
+    #spotlight .wrapper header div.color div.btn {
+        width: 31px;
+    }
+    #spotlight .wrapper header div.color div.btn img {
+        width: 81%;
+    }
+    #spotlight .wrapper .content div.left h6 {
+        font-size: 16px;
+    }
+    #spotlight .wrapper .content div.left div.words h1.one {
+        font-size: 30px;
+        width: 68%;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate {
+        height: 30px;
+        width: 71%;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate span {
+        font-size: 30px;
+        margin-left: 4px;
+    }
+    #spotlight .wrapper .content div.left p {
+        font-size: 14px;
+    }
+    #spotlight .wrapper section.content div.left a.submit {
+        padding: 12px 5px;
+    }
+    #spotlight .wrapper section.content div.left a.button {
+        padding: 11px 10px;
+    }
+    div.image-container img {
+        width: 95%;
+    }
+    #main section.wrapper div.header h1 {
+        font-size: 28px;
+    }
+    #middle .wrapper .left h2 {
+        font-size: 30px;
+    }
+    #middle .wrapper .left ul li .left {
+        width: 25%;
+    }
+    #middle .wrapper .left ul::before {
+        height: 631px;
+    }
+    #middle .wrapper .left ul li .right h3 {
+        font-size: 19px;
+    }
+    #middle .wrapper .left ul li .right h3 span {
+        font-size: 14px;
+    }
+    #middle .wrapper .left ul li .right p {
+        width: 100%;
+        font-size: 14px;
+    }
+    #middle .wrapper .right h2 {
+        font-size: 30px;
+    }
+    #middle .wrapper .right ul::before {
+        height: 386px;
+    }
+    #middle .wrapper .right ul li .left {
+        width: 25%;
+    }
+    #middle .wrapper .right ul li .right h3 {
+        font-size: 19px;
+    }
+    #middle .wrapper .right ul li .right h3 span {
+        font-size: 14px;
+    }
+    #middle .wrapper .right ul li .right p {
+        width: 100%;
+        font-size: 14px;
+    }
+
 }
