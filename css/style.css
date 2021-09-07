@@ -11,7 +11,7 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	font-weight: bold;
-	
+	transition-duration: .5s;
 }
 ol, ul {
 	list-style: none;
@@ -42,7 +42,9 @@ ol, ul {
     font-weight: 100;
     font-style: normal;
 }
-
+a {
+    display: inline-block;
+}
 :root{
     --main-color: #fff;
     --font-color: #000;
@@ -58,15 +60,6 @@ ol, ul {
     color: #000 !important;
     font-weight: bolder;
 }
-/* .slick-prev:before {
-    font-family: 'slick';
-    line-height: 1;
-    opacity: .75;
-    content: '←';
-    font-size: 87px !important;
-    color: orangered;
-    font-size: 89px;
-} */
 body {
 	width: 100%;
 	font-family: "Circular-Std-Regular", Arial, Helvetica, sans-serif;
@@ -83,6 +76,7 @@ body {
 }
 .fa-user {
 }
+
 /* #spotlight */
 #spotlight {
     width: 100%;
@@ -104,13 +98,9 @@ body {
 	justify-content: space-between;
 	height: 80px;
 }
-#spotlight .wrapper header div.image-container {
-    display: flex;
-    align-items: baseline;
-    width: 10%;
-}
 #spotlight .wrapper header div.image-container a {
-    
+    display: flex;
+    align-items: center;
 }
 #spotlight .wrapper header div.image-container a h1 {
     font-size: 25px;
@@ -123,7 +113,7 @@ body {
     color: #fff;
 }
 #spotlight .wrapper header div.image-container a h1:hover {
-    color: orange;
+    color: #ffa500;
     transition: 1s;
 }
 #spotlight .wrapper header div.right {
@@ -135,15 +125,43 @@ body {
     overflow: hidden;
 }
 #spotlight .wrapper header div.right ul li {
-    width: 20%;
+    margin-right: 40px;
+}
+#spotlight .wrapper header div.right ul li:last-child {
+    margin-right: 0;
 }
 #spotlight .wrapper header div.right ul li:hover  {
-    transform: scale(1.2);
-    transform: translateY(-15%);
+    transform: translateY(150%);
 }
 #spotlight .wrapper header div.right ul li a {
     color: #707172;
     font-size: 20px;
+    position: relative;
+    text-transform: capitalize;
+}
+#spotlight .wrapper header div.right ul li:nth-child(1) a::before {
+    content: "About";
+    color: #ffa500;
+    position: absolute;
+    top: -35px;
+}
+#spotlight .wrapper header div.right ul li:nth-child(2) a::before {
+    content: "Projects";
+    color: #ffa500;
+    position: absolute;
+    top: -35px;
+}
+#spotlight .wrapper header div.right ul li:nth-child(3) a::before {
+    content: "Resume";
+    color: #ffa500;
+    position: absolute;
+    top: -35px;
+}
+#spotlight .wrapper header div.right ul li:nth-child(4) a::before {
+    content: "Contact";
+    color: #ffa500;
+    position: absolute;
+    top: -35px;
 }
 #spotlight .wrapper header div.right ul li span {
     color: #707172;
@@ -152,34 +170,38 @@ body {
 }
 #spotlight .wrapper header div.right ul li a:hover {
     opacity: 0.75;
-    color: orange;
+    color: #ffa500;
     transition: 1s;
-}
-#spotlight .wrapper header div.color {
-    width: 13%;
-    display: flex;
-    align-items: center;
 }
 .fa-user {
     font-size: 40px;
+    color: #000;
+}
+.fa-user.active {
+    color: #fcfafa;
 }
 .fa-user:hover {
-    color: orange;
+    color: #ffa500;
     transition: 1s;
 }
-#spotlight .wrapper header div.color div.btn {
-    width: 50px;
-
+#spotlight .wrapper header div.color a {
+    display: flex;
 }
-#spotlight .wrapper header div.color div.btn img {
-    display: inline-block;
-    width: 60%;
-
+#spotlight .wrapper header div.color a div.day_night {
+    width: 25px;
 }
-#spotlight .wrapper header div.color h5 {
+#spotlight .wrapper header div.color a div.day_night img {
+    display: block;
+    width: 100%;
+}
+#spotlight .wrapper header div.color a h5 {
     font-size: 20px;
     margin-left: 5px;
     font-weight: bold;
+    color: black;
+}
+#spotlight .wrapper header div.color a h5.active {
+    color: #f5f0f0;
 }
 #spotlight .wrapper section.content {
     display: flex;
@@ -188,16 +210,17 @@ body {
 }
 #spotlight .wrapper .content div.left {
     width: 82%;
-    height: 450px;
     margin-top: 5%;
+    padding-bottom: 61px;
 }
 #spotlight .wrapper .content div.left h6 {
     font-size: 20px;
     margin-bottom: 6%;
     color: #464747;
-    margin-left: 4%;
+    padding-left: 4%;
 }
 #spotlight .wrapper .content div.left div.words {
+    margin-bottom: 3%;
     display: flex;
 }
 #spotlight .wrapper .content div.left div.words h1.one {
@@ -205,6 +228,17 @@ body {
     font-weight: bold;
     color: #0a0a0adc;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+}
+#spotlight .wrapper .content div.left div.words h1.one::after{
+    /* position: absolute; */
+    /* width: 100%; */
+    content: "";
+    display: block;
+    color: #ffa500;
+    animation: text_animate infinite 8s ease-in-out;
+    /* top: 0; */
+    transform: translate(107%, -96%);
 }
 #spotlight .wrapper .content div.left div.words h1.one.active {
     color: #fff;
@@ -213,90 +247,88 @@ body {
     height: 50px;
     overflow: hidden;
 }
-#spotlight .wrapper .content div.left div.words div.animate span {
-    display: block;
-    font-size: 50px;
-    font-weight: bold;
-    color: orange;
-    margin-left: 15px;
-    animation: spin_words 8s infinite;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
-}
-@keyframes spin_words {
-    10% {
-        transform: translateY(-112%);
+
+@keyframes text_animate {
+    0% {
+        content: "Web designer";
+        transition-duration: .5s;
+        opacity: 1;
     }
     25% {
-        transform: translateY(-100%);
-    }
-    35% {
-        transform: translateY(-212%);
+        opacity: 0;
     }
     50% {
-        transform: translateY(-200%);
+        opacity: 1;
+        content: "UI Specialist";
+        transition-duration: .5s;
     }
-    /* 60% {
-        transform: translateY(-312%);
+    70% {
+        opacity: 0;
     }
     75% {
-        transform: translateY(-300%);
+        transition-duration: .5s;
+        opacity: 1;
+        content: "Marvel Saan";
     }
-    85% {
-        transform: translateY(-400%);
-    } */
+    90% {
+        opacity: 0;
+    }
     100% {
-        transform: translateY(-300%);
+        opacity: 1;
+        content: "Web designer";
+        transition-duration: .5s;
     }
 }
-
 #spotlight .wrapper .content div.left p {
     font-size: 20px;
     color: #6b6d6e;
-    margin-top: 3%;
-    margin-bottom: 7%;
-    font-family: "Open sans"
+    /* margin-top: 3%; */
+    margin-bottom: 8%;
+    font-family: "Open sans";
 }
 #spotlight .wrapper section.content div.left a {
+   display: inline-block;
    margin: 0 auto;
 }
 #spotlight .wrapper section.content div.left a.submit {
+    display: inline-block;
     font-size: 18px;
     border-radius: 40px;
     background-color: #e6e0dfcc;
-    width: 150px;
+    /* width: 29%; */
     color: rgb(41, 40, 40);
-    padding: 19px 37px;
+    padding: 19px 17px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #spotlight .wrapper section.content div.left a.submit:hover {
-    color: orange;
+    color: #ffa500;
 }
 #spotlight .wrapper section.content div.left a.button {
     font-size: 18px;
     border-radius: 40px;
     background-color: rgba(15, 9, 26, 0.718);
-    width: 150px;
+    /* width: 25%; */
     color: #f5f0f0;
-    padding: 19px 32px;
+    padding: 19px 27px;
     margin-left: 2%;
 }
 #spotlight .wrapper section.content div.left a:last-child:hover {
     opacity: 1;
-    background-color: orange;
+    background-color: #ffa500;
 }
 .fa-file-alt {
-    margin-right: 1%;
+    margin-right: 7px;
 }
 #spotlight .wrapper section.content div.right {
     width: 66%;
-    height: 450px;
+    /* height: 450px; */
 }
 #spotlight .wrapper section.content div.right  div.image-container {
-    width: 100%;
+    width: 86%;
 }
 #spotlight .wrapper section.content div.right div.image-container img {
-    width: 86%;
+    width: 100%;
+    display: block;
 }
 /* #main */
 #main {
@@ -316,7 +348,7 @@ body {
     text-align: center;
 }
 #main section.wrapper div.header h1 {
-    margin-left: 17%;
+    margin: 0 auto;
     width: 63%;
     font-size: 50px;
     color: #080808;
@@ -348,8 +380,8 @@ body {
     background-color: #000;
     color: #fff;
 }
-#middle .wrapper { 
-    width: 90%;
+#middle .wrapper {
+    /* width: 90%; */
     display: flex;
 }
 #middle .wrapper .left { 
@@ -386,8 +418,8 @@ body {
     color: #fff;
 }
 #middle .wrapper .left ul li .left {
-    width: 13%;
-    height: 88px;
+    width: 94px;
+    height: 90px;
     border-radius: 50%;
     background-color: #352a3f;
     position: relative;
@@ -395,10 +427,11 @@ body {
 }
 #middle .wrapper .left ul li .left span {
     color: #f5f0f0;
-    font-size: 23px;
+    font-size: 24px;
+    display: inline-block;
     font-weight: bold;
-    position: absolute;
-    margin: 36% 21% 30% 21%;
+    box-sizing: border-box;
+    padding: 31px 22px;
 }
 #middle .wrapper .left ul li .right { 
     width: 90%;
@@ -458,8 +491,8 @@ body {
     color: #fff;
 }
 #middle .wrapper .right ul li .left {
-    width: 13%;
-    height: 88px;
+    width: 94px;
+    height: 90px;
     border-radius: 50%;
     background-color: #352a3f;
     position: relative;
@@ -467,10 +500,11 @@ body {
 }
 #middle .wrapper .right ul li .left span {
     color: #f5f0f0;
-    font-size: 23px;
+    font-size: 24px;
+    display: inline-block;
     font-weight: bold;
-    position: absolute;
-    margin: 36% 21% 30% 21%;
+    box-sizing: border-box;
+    padding: 31px 22px;
 }
 #middle .wrapper .right ul li .right { 
     width: 90%;
@@ -502,11 +536,11 @@ body {
     color: rgb(43, 116, 226);
 }
 #middle .wrapper .right ul li .right p b:hover {
-    color: orange;
+    color: #ffa500;
     transition: .1s;
 }
 /* #contact */
-#contact { 
+#contact {
     width: 100%;
     background-color: var(--main-color);
 }
@@ -518,11 +552,10 @@ body {
     width: 90%;
     display: flex;
     padding-top: 60px;
-    padding-bottom: 30px;
 }
-#contact .wrapper .left { 
+#contact .wrapper .left {
     width: 50%;
-    margin-top: 2%;
+    padding-top: 2%;
 }
 #contact .wrapper .left .frame { 
 
@@ -535,26 +568,31 @@ body {
     background-color: #3f3c50;
     display: flex;
 }
-#contact .wrapper .left .hello .one { 
+#contact .wrapper .left .hello .one {
     width: 80%;
+    padding-left: 75px;
+    padding-top: 20px;
 }
 #contact .wrapper .left .hello .one h2 {
     font-size: 40px;
     color: snow;
-    padding: 4% 4% 3% 16%;
+    padding-bottom: 20px;
+    /* padding-left: 75px; */
 }
 #contact .wrapper .left .hello .one span {
     font-size: 18px;
     color: snow;
-    margin: 13% 4% 3% 16%;
+    /* margin: 13% 4% 3% 16%; */
+    padding-bottom: 20px;
+    display: inline-block;
 }
 #contact .wrapper .left .hello .one h4 {
     font-size: 18px;
     color: snow;
-    margin: 4% 4% 5% 16%;
+    /* margin: 4% 4% 5% 16%; */
 }
 #contact .wrapper .left .hello .one h4:hover {
-    color: orange;
+    color: #ffa500;
 }
 #contact .wrapper .left .hello .icon { 
     width: 20%;
@@ -600,7 +638,7 @@ body {
 	color: #6d6d6d;
 }
 #contact .wrapper .right form input[type=text]:hover {
-    border-color: orange;
+    border-color: #ffa500;
 }
 #contact .wrapper .right form input[type=email] {
 	flex: 1;
@@ -613,7 +651,7 @@ body {
 	color: #6d6d6d;
 }
 #contact .wrapper .right form input[type=email]:hover {
-    border-color: orange;
+    border-color: #ffa500;
 }
 #contact .wrapper .right form  div.text {
 	padding-top: 10px;
@@ -630,7 +668,7 @@ body {
     color: #6d6d6d;
 }
 #contact .wrapper .right form .text textarea:hover {
-    border-color: orange;
+    border-color: #ffa500;
 }
 #contact .wrapper .right form a {
     margin: 0 auto;
@@ -648,13 +686,13 @@ body {
     background-color: #3f3c50;
 }
 .fa-globe:hover {
-    color: orange;
+    color: #ffa500;
 }
 .fa-instagram:hover {
-    color: orange;
+    color: #ffa500;
 }
 .fa-youtube:hover {
-    color: orange;
+    color: #ffa500;
 }
 /* footer */
 footer {
@@ -681,9 +719,34 @@ footer h6 b {
     color: #0184ff;
 }
 footer h6 b:hover {
-    color: orange;
+    color: #ffa500;
 }
 /* Responsive */
+@media all and (max-width: 1400px) {
+    #middle .wrapper .left ul li .left {
+        width: 15%;
+    }
+    #middle .wrapper .left ul li .left span {
+        padding: 32px 15px;
+    }
+    #middle .wrapper .left ul::before {
+        height: 704px;
+        left: 40px;
+    }
+    #middle .wrapper .right ul::before {
+        left: 37px;
+    }
+    #middle .wrapper .right ul li .left {
+        width: 15%;
+    }
+    #middle .wrapper .right ul li .left span {
+        padding: 30px 14px;
+    }
+    #contact .wrapper .left .hello .one {
+        padding-left: 71px;
+        padding-top: 8px;
+    }
+}
 @media all and (max-width: 1280px) {
     #spotlight .wrapper header div.image-container {
         width: 16%;
@@ -715,7 +778,7 @@ footer h6 b:hover {
         width: 18%;
     }
     #spotlight .wrapper header div.color div.btn {
-        width: 42px;
+        width: 30px;
     }
     #spotlight .wrapper header div.color h5 {
         font-size: 19px;
@@ -728,24 +791,24 @@ footer h6 b:hover {
     }
     #spotlight .wrapper .content div.left div.words h1.one {
         font-size: 38px;
-        width: 65%;
+        width: 50%;
     }
-    #spotlight .wrapper .content div.left div.words div.animate {
+    /* #spotlight .wrapper .content div.left div.words div.animate {
         height: 34px;
         width: 64%;
     }
     #spotlight .wrapper .content div.left div.words div.animate span {
         font-size: 36px;
         margin-left: 8px;  
-    }
+    } */
     #spotlight .wrapper .content div.left p {
         font-size: 15px;
     }
     #spotlight .wrapper section.content div.left a.submit {
-        padding: 17px 29px;
+        /* padding: 17px 29px; */
     }
     #spotlight .wrapper section.content div.left a.button {
-        padding: 16px 26px;
+        /* padding: 16px 26px; */
     }
     #main section.wrapper div.header h1 {
         width: 65%;
@@ -763,7 +826,7 @@ footer h6 b:hover {
         left: 40px;
     }
     #middle .wrapper .left ul li .left span {
-        margin: 28% 21% 30% 17%;
+        padding: 31% 21% 30% 17%;
     }
     #middle .wrapper .left ul li .right h3 {
         font-size: 25px;
@@ -787,7 +850,7 @@ footer h6 b:hover {
         left: 40px;
     }
     #middle .wrapper .right ul li .left span {
-        margin: 28% 21% 30% 20%;
+        padding: 31% 21% 30% 17%;
     }
     #middle .wrapper .right ul li .right h3 {
         font-size: 25px;
@@ -834,13 +897,13 @@ footer h6 b:hover {
         left: 37px;
     }
     #middle .wrapper .left ul li .left span {
-        margin: 32% 21% 30% 15%;
+        padding: 24px 10px 10px 11px;
     }
     #middle .wrapper .right ul::before {
         left: 36px;
     }
     #middle .wrapper .right ul li .left span {
-        margin: 32% 21% 30% 15%;
+        padding: 24px 10px 10px 11px;
     }
 }
 @media all and (max-width: 980px) {
@@ -858,15 +921,7 @@ footer h6 b:hover {
     }
     #spotlight .wrapper .content div.left div.words h1.one {
         font-size: 30px;
-        width: 68%;
-    }
-    #spotlight .wrapper .content div.left div.words div.animate {
-        height: 30px;
-        width: 71%;
-    }
-    #spotlight .wrapper .content div.left div.words div.animate span {
-        font-size: 30px;
-        margin-left: 4px;
+        width: 50%;
     }
     #spotlight .wrapper .content div.left p {
         font-size: 14px;
@@ -890,7 +945,7 @@ footer h6 b:hover {
         width: 25%;
     }
     #middle .wrapper .left ul::before {
-        height: 631px;
+        height: 573px;
     }
     #middle .wrapper .left ul li .right h3 {
         font-size: 19px;
@@ -921,5 +976,402 @@ footer h6 b:hover {
         width: 100%;
         font-size: 14px;
     }
+    #contact .wrapper .right h2 {
+        font-size: 25px;
+    }
+    #contact .wrapper .left .hello .one {
+        padding-left: 13px;
+        padding-top: 8px;
+    }
+    #contact .wrapper .right form input[type=text] {
+        width: 49%;
+        margin-right: 0;
+    }
+    #contact .wrapper .left .hello .icon ul li {
+        padding: 14% 0;
+    }
+    #contact .wrapper .right form input[type=email] {
+        width: 49%;
+        margin-right: 0;
+    }
+}
+@media all and (max-width: 768px) {
+    #spotlight .wrapper header div.right {
+        display: none;
+    }
+    #spotlight .wrapper header div.color {
+        width: 26%;
+    }
+    #spotlight .wrapper .content div.left div.words {
+        width: 95%;
+    }
+    #spotlight .wrapper .content div.left div.words h1.one {
+        width: 70%;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate {
+        width: 100%;
+    }
+    #spotlight .wrapper section.content div.right {
+        display: none;
+    }
+    #middle .wrapper .left h2 {
+        font-size: 28px;
+    }
+    #middle .wrapper .left ul::before {
+        left: 31px;
+    }
+    #middle .wrapper .left ul li .left {
+        width: 26%;
+        height: 65px;
+        margin-right: 14px;
+    }
+    #middle .wrapper .left ul li .left span {
+        font-size: 18px;
+        padding: 36% 17% 30% 19%;
+    }
+    #middle .wrapper .left ul::before {
+        left: 31px;
+    }
+    #middle .wrapper .left ul li .right h3 {
+        font-size: 17px;
+    }
+    #middle .wrapper .left ul li .right h3 span {
+        font-size: 13px;
+    }
 
+    #middle .wrapper .right h2 {
+        font-size: 28px;
+    }
+    #middle .wrapper .right ul::before {
+        left: 31px;
+    }
+    #middle .wrapper .right ul li .left {
+        width: 26%;
+        height: 62px;
+        margin-right: 14px;
+    }
+    #middle .wrapper .right ul li .left span {
+        font-size: 18px;
+        padding: 33% 17% 30% 17%;
+    }
+    #middle .wrapper .left ul::before {
+    left: 31px;
+    }
+    #middle .wrapper .right ul li .right h3 {
+        font-size: 17px;
+    }
+    #middle .wrapper .right ul li .right h3 span {
+        font-size: 13px;
+    }
+    #contact .wrapper .left .hello .one {
+        padding-left: 10px;
+        padding-top: 12px;
+    }
+    #contact .wrapper .right h2 {
+        font-size: 21px;
+    }
+}
+@media all and (max-width: 640px) {
+    #spotlight .wrapper header div.color {
+        width: 31%;
+    }
+    #spotlight .wrapper .content div.left div.words {
+        width: 97%;
+    }
+    #spotlight .wrapper .content div.left div.words h1.one {
+        width: 91%;
+    }
+    #spotlight .wrapper section.content div.left a.submit {
+        font-size: 15px;
+    }
+    #spotlight .wrapper section.content div.left a.button {
+        font-size: 15px;
+    }
+    #main section.wrapper {
+        padding-bottom: 21px;
+    }
+    #main section.wrapper div.header h1 {
+        font-size: 20px;
+    }
+    #main section.wrapper div.single-items {
+        width: 60%;
+    }
+    #middle .wrapper {
+        display: block;
+    }
+    #middle .wrapper .left {
+        width: 100%;
+    }
+    #middle .wrapper .left h2 {
+        font-size: 26px;
+    }
+    #middle .wrapper .left ul::before {
+        height: 565px;
+        left: 33px;
+    }
+    #middle .wrapper .left ul li .left {
+        width: 15%;
+        margin-right: 17px;
+    }
+    #middle .wrapper .left ul li .left span {
+        font-size: 17px;
+        padding: 32% 17% 30% 23%;
+    }
+    #middle .wrapper .right {
+        width: 100%;
+    }
+    #middle .wrapper .right h2 {
+        font-size: 26px;
+    }
+    #middle .wrapper .right ul::before {
+        height: 360px;
+        left: 32px;
+    }
+    #middle .wrapper .right ul li .left {
+        width: 15%;
+        margin-right: 17px;
+    }
+    #middle .wrapper .right ul li .left span {
+        font-size: 17px;
+        padding: 32% 17% 30% 21%;
+    }
+    #contact .wrapper .left .hello .one h2 {
+        font-size: 19px;
+    }
+    #contact .wrapper .left .hello .one h4 {
+        font-size: 13px;
+    }
+    #contact .wrapper .left .hello .icon {
+        width: 16%;
+    }
+    #contact .wrapper .right h2 {
+        font-size: 17px;
+    }
+    #contact .wrapper .right form input[type=text] {
+        font-size: 15px;
+    }
+    #contact .wrapper .right form input[type=email] {
+        font-size: 15px;
+    }
+    #contact .wrapper .right form a.submit {
+        padding: 9px 34px;
+    }
+    #contact .wrapper .right form .text textarea {
+        font-size: 15px;
+    }
+    footer {
+        padding-top: 10%;
+    }
+}
+@media all and (max-width: 540px) {
+    #spotlight .wrapper .content div.left div.words h1.one {
+        width: 87%;
+    }
+    #spotlight .wrapper header div.color {
+        width: 33%;
+    }
+    #spotlight .wrapper header div.color a h5 {
+        font-size: 17px;
+    }
+    #spotlight .wrapper .content div.left div.words h1.one {
+        font-size: 28px;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate {
+        width: 84%;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate span {
+        font-size: 25px;
+    }
+    #middle .wrapper .left ul li .left {
+        width: 17%;
+        margin-right: 19px;
+    }
+    #middle .wrapper .left ul li .left span {
+        padding: 22px 15px;
+    }
+    #middle .wrapper .left ul::before {
+        height: 517px;
+        left: 33px;
+    }
+    #middle .wrapper .right ul li .left {
+        width: 17%;
+        margin-right: 19px;
+    }
+    #middle .wrapper .right ul li .left span {
+        padding: 22px 15px;
+    }
+    #middle .wrapper .right ul::before {
+        height: 348px;
+        left: 32px;
+    }
+    #contact .wrapper {
+        display: block;
+    }
+    #contact .wrapper .left {
+        width: 100%;
+    }
+    #contact .wrapper .left .hello {
+        width: 91%;
+    }
+    #contact .wrapper .left .hello .one h2 {
+        font-size: 24px;
+    }
+    #contact .wrapper .right {
+        width: 93%;
+        margin-top: 7%;
+    }
+    #contact .wrapper .right h2 {
+        font-size: 27px;
+    }
+}
+@media all and (max-width: 480px) {
+    .fa-user {
+        font-size: 24px;
+    }
+    #spotlight .wrapper header div.image-container a h1 {
+        font-size: 14px;
+    }
+    #spotlight .wrapper header div.color {
+        width: 40%;
+    }
+    #spotlight .wrapper header div.color a h5 {
+        font-size: 14px;
+    }
+    #spotlight .wrapper .content div.left {
+        width: 100%;
+    }
+    #spotlight .wrapper .content div.left div.words h1.one {
+        font-size: 22px;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate {
+        width: 94%;
+    }
+    #spotlight .wrapper section.content div.left a.submit {
+        padding: 8px 10px;
+        font-size: 14px;
+        width: 60%;
+        display: block;
+        text-align: center;
+        margin-bottom: 14px;
+        /* margin: 0 auto; */
+    }
+    #spotlight .wrapper section.content div.left a.button {
+        padding: 8px 7px;
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+    }
+    #main section.wrapper div.header h1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .slick-prev:before {
+        display: none;
+    }
+    .slick-next:before {
+        display: none;
+    }
+    #middle .wrapper .left ul li .left {
+        width: 23%;
+        border-radius: 50%;
+        margin-right: 18px;
+    }
+    #middle .wrapper .left ul li .left span {
+        padding: 24px 16px;
+    }
+    #middle .wrapper .left ul::before {
+        height: 540px;
+        left: 32px;
+    }
+    #middle .wrapper .right ul li .left {
+        width: 27%;
+        margin-right: 18px;
+    }
+    #middle .wrapper .right ul li .left span {
+        padding: 22px 15px;
+    }
+    #middle .wrapper .right ul::before {
+        height: 332px;
+        left: 32px;
+    }
+    #contact .wrapper .left .hello .one {
+        padding-left: 35px;
+        padding-top: 18px;
+    }
+    #contact .wrapper .right h2 {
+        font-size: 20px;
+    }
+    footer {
+        display: none;
+    }
+}
+@media all and (max-width: 360px) {
+    #spotlight .wrapper header div.color div.btn {
+        width: 22px;
+    }
+    #spotlight .wrapper .content div.left h6 {
+        font-size: 14px;
+    }
+    #spotlight .wrapper .content div.left div.words h1.one {
+        font-size: 19px;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate {
+        height: 17px;
+    }
+    #spotlight .wrapper .content div.left div.words div.animate span {
+        font-size: 19px;
+    }
+    #main section.wrapper {
+        padding-bottom: 7%;
+    }
+    .slick-prev:before {
+        display: none;
+    }
+    .slick-next:before {
+        display: none;
+    }
+    #middle .wrapper .left ul::before {
+        left: 32px;
+        height: 513px;
+    }
+    #middle .wrapper .right ul li .left {
+        width: 26%;
+        margin-right: 18px;
+    }
+    #middle .wrapper .left ul li .left span {
+        /* border-radius: 50%; */
+        /* width: 17px; */
+        /* display: inline-block; */
+        /* padding: 0px; */
+        /* box-sizing: border-box; */
+    }
+    #middle .wrapper .right ul li .right p {
+        font-size: 13px;
+    }
+    #middle .wrapper .right ul::before {
+        height: 328px;
+        left: 32px;
+    }
+    #middle .wrapper .right ul li .left span {
+        padding: 22px 16px;
+    }
+    #middle .wrapper .left ul li .right p {
+        font-size: 13px;
+    }
+    #contact .wrapper {
+        padding-bottom: 14%;
+    }
+    #contact .wrapper .right h2 {
+        font-size: 18px;
+    }
+}
+@media all and (max-width: 320px) {
+    #middle .wrapper .right ul::before {
+        left: 28px;
+    }
+    #middle .wrapper .right ul li .left span {
+        padding: 22px 10px;
+    }
 }
